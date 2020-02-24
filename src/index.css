@@ -1,3 +1,9 @@
+@import "./constant/Noto.css";
+
+p {
+  font-family: 'Noto Serif TC'
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

@@ -1,18 +1,55 @@
 import React from 'react';
-import logo from './logo.svg';
+import {Nav} from "./component";
+import Home from "./pages/Home";
+import Components from "./pages/Components";
+import Games from "./pages/Games";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  HashRouter,
+  Link,
+} from "react-router-dom";
 import './App.css';
-
-function App() {
+import styled from 'styled-components';
+const Bound = styled.div`
+    min-height: 100vh;
+`;
+const Site = styled.div`
+    background-image: linear-gradient(45deg, #57838a, #ffffff38);
+    background-color: #99e2b8;
+    min-height: 100vh;
+    font-size: calc(10px + 2vmin);
+    color: white;
+`;
+const WebSite = ()=>{
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-      </header>
-    </div>
-  );
+    <Site>
+      <Nav />
+      <Switch>
+        <Route path="/games" component={Games}/>  
+        <Route path="/" component={Home}/>  
+      </Switch>
+    </Site>  
+)}
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <Router>
+          <Bound>
+            <Switch>
+                  <Route path="/Components">
+                    <Components/>
+                  </Route>
+                <WebSite/>
+            </Switch>
+          </Bound >
+      </Router>
+    );
+  }
 }
 
 export default App;
