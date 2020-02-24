@@ -1,7 +1,16 @@
 import React, { Component } from 'react'
 import { Container,Input, Button } from '../component'
 import { ReactComponent as User } from '../constant/user.svg'
+import { ReactComponent as ErrSvg } from '../constant/error.svg'
 import styled from 'styled-components'
+const colorConfig = {
+    focus:`#fbffe5`,
+    focusSec:`#feffc5`,
+    error : `#fda1a1`,
+    errSrc : `#a91f1f`,
+    normal : `gray`,
+    fontColor:`white`
+  }
 const FormContainer = styled.div`
    padding:20px;
    width:270px;
@@ -22,9 +31,9 @@ export default class Games extends Component {
         return (
             <Container>
                 <FormContainer>
-                    <Input type="txt" label="Account" icon={User}/>
+                    <Input color={colorConfig} type="txt" label="Account" icon={User}/>
                     <p/>
-                        <Input type="txt" label="Password" icon={User}/>
+                    <Input validation type="email" label="Password" icon={ErrSvg} />
                     <p style={{height:"1em;"}}/>
                     <ButtonContainer>
                         <StyledButton>Log in</StyledButton>

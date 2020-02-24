@@ -35,6 +35,7 @@ position: relative;
 padding: 15px 0 0;
 margin-top: 10px;
 width: 100%;
+
 `;
 const ImgContainer = styled.span`
     display:flex;
@@ -112,21 +113,21 @@ const StyledLabel = styled.label`
  * label      :String         the title name,
  * validation :Boolean        effect when check the format,
 */
-export const Input = props => <InputContainer color={colorConfig}>
+export const Input = props => <InputContainer color={props.color || colorConfig}>
     <StyledInput 
         id={props.label} 
-        color={colorConfig} 
+        color={props.color || colorConfig} 
         placeholder={props.label} 
         type={props.type || 'text'} 
         validation={props.validation}/>
 
     <StyledLabel 
-      color={colorConfig} 
+      color={props.color || colorConfig} 
       htmlfor={props.label}>
         {props.label}
     </StyledLabel>
 
-    <ImgContainer color={colorConfig}>
-      {props.hasOwnProperty('icon') && <props.icon/>}
+    <ImgContainer color={props.color || colorConfig} validation={props.validation}>
+      {props.hasOwnProperty('icon') && <props.icon />}
     </ImgContainer>
 </InputContainer>

@@ -23,12 +23,19 @@ const  StyledNav= styled.div`
   width:auto;
   padding:20px;
   ${props=>props.float?float:null}
+  @media only screen and (max-width: 768px) {
+    grid-template-columns:0fr 1fr;
+  }
 `;
 const RightSide= styled.div`
   display:-moz-grid;
   display:-ms-grid;
   display:grid;
   grid-template-columns:repeat(4,1fr);
+  @media only screen and (max-width: 768px) {
+    grid-template-columns:0fr repeat(3,1fr);
+  }
+  
 `;
 class Nav extends React.Component {
   constructor(props) {

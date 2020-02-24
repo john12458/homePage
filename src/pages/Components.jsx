@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import {Input} from '../component/Input';
 import {Link} from "react-router-dom";
 import { ReactComponent as Return } from '../constant/return.svg'
-import { ReactComponent as Pic } from '../constant/user.svg'
+import { ReactComponent as ErrPic } from '../constant/error.svg'
 const Board = styled.div`
   background-color:black;
   min-height: 100vh;
@@ -41,7 +41,7 @@ export default class Components extends React.Component {
             <Block>
               <h2>Form</h2>
               <hr/>
-              <Input type="email" label="Account" icon={Pic} validation/>
+              <Input type="email" label="Account" icon={ErrPic} validation/>
               <Input type="password" label="Password" />
             </Block>
               
