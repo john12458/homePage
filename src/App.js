@@ -2,7 +2,8 @@ import React from 'react';
 import {Nav} from "./component";
 import Home from "./pages/Home";
 import Components from "./pages/Components";
-import Games from "./pages/Games";
+import Games from "./pages/games/Games";
+import PikaBall from './pages/pikaBall'
 import {
   BrowserRouter as Router,
   Switch,
@@ -41,9 +42,8 @@ class App extends React.Component {
       <Router>
           <Bound>
             <Switch>
-                  <Route path="/Components">
-                    <Components/>
-                  </Route>
+                  <Route path="/pikaBall" component={PikaBall}/>
+                  <Route path="/Components" component={Components} />
                 <WebSite/>
             </Switch>
           </Bound >

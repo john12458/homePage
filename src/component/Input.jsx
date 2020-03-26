@@ -17,7 +17,7 @@ const invalidStyle = css`
           border-bottom-color:${props=>props.color.errSrc};
           svg{
             fill:${props=>props.color.errSrc};
-            visibility: visible;
+            opacity:100%;
             animation: 0.5s ${zoomInAnimation};
           }
         }
@@ -46,7 +46,7 @@ const ImgContainer = styled.span`
     
     svg{
         fill:${props=>props.color.normal};
-        visibility: ${props=>props.validation?'hidden':'visible'};
+        opacity: ${props=>props.validation?'0%':'100%'};
         height:auto;
         max-width: -webkit-fill-available;
     }
@@ -55,7 +55,13 @@ const StyledInput = styled.input`
     font-family: inherit;
     width: 100%;
     border: 0;
+    /* without important safari not work */
+    border-top: 0 !important;
+    border-left: 0!important;
+    border-right: 0!important;
+    border-radius: 0;
     border-bottom: 2px solid ${props=>props.color.normal};
+    margin:0;
     outline: 0;
     font-size: 1.3rem;
     color: ${props=>props.color.fontColor};
@@ -74,6 +80,7 @@ const StyledInput = styled.input`
     }
   
     &:focus {
+      
       ~ span{
         border-bottom:3px solid ${props=>props.color.focusSec};
         svg{fill:${props=>props.color.focusSec};}
@@ -87,6 +94,7 @@ const StyledInput = styled.input`
         color: ${props=>props.color.focus};
         font-weight:700;    
       }
+      
       padding-bottom: 6px;  
       font-weight: 700;
       border-width: 3px;
@@ -108,26 +116,34 @@ const StyledLabel = styled.label`
 
 
 /** props
- * type       :String         type e.g. email,txt
+ * color      :Object         color config
  * svg        :ReactComponent the icon 
  * label      :String         the title name,
  * validation :Boolean        effect when check the format,
 */
-export const Input = props => <InputContainer color={props.color || colorConfig}>
-    <StyledInput 
-        id={props.label} 
-        color={props.color || colorConfig} 
-        placeholder={props.label} 
-        type={props.type || 'text'} 
-        validation={props.validation}/>
+export default class Input extends React.Component {
+  constructor(props){
+    super(props)
+  } 
+  render() {
+    let{color,label,validation}= this.props;
+    return (
+        <InputContainer color={color || colorConfig}>
+        <StyledInput 
+            id={label} 
+            placeholder={label} 
+            color={color || colorConfig}
+            {...this.props}/>
+        <StyledLabel 
+          color={color || colorConfig} 
+          for={label}> {/* htmlfor not effect @@ */}
+            {label}
+        </StyledLabel>
+        <ImgContainer color={color || colorConfig} validation={validation}>
+          {this.props.hasOwnProperty('icon') && <this.props.icon />}
+        </ImgContainer>
+    </InputContainer>
+    )
+  }
+}
 
-    <StyledLabel 
-      color={props.color || colorConfig} 
-      htmlfor={props.label}>
-        {props.label}
-    </StyledLabel>
-
-    <ImgContainer color={props.color || colorConfig} validation={props.validation}>
-      {props.hasOwnProperty('icon') && <props.icon />}
-    </ImgContainer>
-</InputContainer>

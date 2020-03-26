@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css';
 import Button from '../component/Button'
 import styled from 'styled-components';
-import {Input} from '../component/Input';
+import {Input} from '../component/';
 import {Link} from "react-router-dom";
 import { ReactComponent as Return } from '../constant/return.svg'
 import { ReactComponent as ErrPic } from '../constant/error.svg'
