@@ -2,6 +2,7 @@
   "name": "ysite",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://john12458.github.io/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",

@@ -39,7 +39,8 @@ class App extends React.Component {
   }
   render() {
     return (
-      <Router>
+      // <Router>
+      <HashRouter>
           <Bound>
             <Switch>
                   <Route path="/pikaBall" component={PikaBall}/>
@@ -47,7 +48,7 @@ class App extends React.Component {
                 <WebSite/>
             </Switch>
           </Bound >
-      </Router>
+      </HashRouter>
     );
   }
 }
