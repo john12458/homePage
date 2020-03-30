@@ -1,4 +1,6 @@
-## https://github.com/john12458/john12458.github.io
+## Yan's site (john12458.github.io)
+[https://github.com/john12458/john12458.github.io](https://github.com/john12458/john12458.github.io)
+
 ### `npm start`
 
  Runs the app in the development mode.<br />
