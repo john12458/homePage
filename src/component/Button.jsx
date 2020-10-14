@@ -12,7 +12,8 @@ export default styled.button.attrs(props => ({
 	margin: 1em;
 	padding: 0.25em 1em;
 	border: 2px solid ${props =>props.primary ? '#eae59f' : 'white'};
-    border-radius: 3px;
+	border-radius: 3px;
+	
     &:hover{
 		animation: 0.5s ${swingAnimation};
     }

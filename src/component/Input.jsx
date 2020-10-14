@@ -126,11 +126,11 @@ export default class Input extends React.Component {
     super(props)
   } 
   render() {
-    let{color,label,validation}= this.props;
+    let{id,color,label,validation}= this.props;
     return (
         <InputContainer color={color || colorConfig}>
         <StyledInput 
-            id={label} 
+            id={id} 
             placeholder={label} 
             color={color || colorConfig}
             {...this.props}/>

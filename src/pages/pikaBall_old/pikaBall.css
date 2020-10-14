@@ -1,0 +1,56 @@
+  .container{
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  .fade-in{
+    opacity: 100;
+    transition: opacity 3s ease-in;
+  }
+  .court{
+    /* background: -webkit-linear-gradient(90deg, rgba(255, 233, 194, 1)18%, rgb(156, 196, 255)0%); */
+    height:700px;
+    width:80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    position: relative;
+    background: url(./img/gameBgImage.png) no-repeat;
+    background-size: 100% 100%;
+  }
+  .object{
+    position: absolute;
+    bottom: 0px;
+    left:0px;
+  }
+  .rotate{
+    animation: rotattion infinite 20s linear;
+    height: 40vmin;
+    pointer-events: none;
+  }
+  .fade-out{
+    opacity: 0;
+    transition: opacity 3s ease-in;
+  }
+  
+  
+  @keyframes rotattion{
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+ 
+  
+  

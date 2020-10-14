@@ -3,7 +3,7 @@ import {Nav} from "./component";
 import Home from "./pages/Home";
 import Components from "./pages/Components";
 import Games from "./pages/games/Games";
-import PikaBall from './pages/pikaBall'
+import PikaBall from './pages/pikaBall_old'
 import {
   BrowserRouter as Router,
   Switch,

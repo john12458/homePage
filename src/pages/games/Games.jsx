@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect } from "react-router-dom"
 import { Container,Input, Button } from '../../component'
 import { ReactComponent as User } from '../../constant/user.svg'
 import { ReactComponent as ErrSvg } from '../../constant/error.svg'
@@ -39,6 +40,7 @@ export default class Games extends Component {
            
             Password:{
             },
+            isSubmit:false
         }
         this.onSubmit= this.onSubmit.bind(this);
         this.onChange= this.onChange.bind(this);
@@ -48,14 +50,15 @@ export default class Games extends Component {
         event.preventDefault();
         let message='';
         const {Account,Password}=this.state;
-        Account.valid && Password.valid
-            ? Object.keys(this.state).forEach(
-                value => {message+=`${value}:${this.state[value].value}\n`})
-            : message=`error account or password is invalid`
+        // Account.valid && Password.valid
+        //     ? 
+        //     : 
+        message=`Although error account or invalid password,you are allowed to the game`
         alert(`${message}`)
+        this.setState({isSubmit:true})
     }
     onChange(event){
-        const {id,value}= event.target; 
+        let {id,value}= event.target; 
         const valid = event.target.checkValidity();
         this.setState({ [id]: {value:value ,valid:valid}})
     }
@@ -67,13 +70,16 @@ export default class Games extends Component {
                             icon={User} 
                             validation 
                             type="email" 
-                            label="Account" 
+                            id="Account"
+                            label="Account (email)" 
                             valid={this.state.Account.valid}
                             value={this.state.Account.value}
                             onChange={this.onChange}/>
                     <p/>
+                    <p/>
                     <StyledInput  
-                            type="email"
+                            type="password"
+                            id="Password"
                             label="Password" 
                             valid={this.state.Password.valid}
                             value={this.state.Password.value}
@@ -82,6 +88,7 @@ export default class Games extends Component {
                         <StyledButton onClick={this.onSubmit}>Login</StyledButton>
                     </ButtonContainer>
                 </FormContainer>    
+                {this.state.isSubmit && <Redirect to="/pikaBall"/>}
                             
             </Container>
         )

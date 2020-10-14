@@ -5,14 +5,19 @@ import { bounceIn } from 'react-animations';
 const bounceAnimation = keyframes`${bounceIn}`;
 const float ='position: fixed; top:0;'
 const  NavBtn = styled.span`
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
     *{
       color:white;  
       text-decoration:none;   
     }
     
-    a{
-    }
     a:hover{
+      cursor: pointer;
+    }
+    a:after{
       cursor: pointer;
 		  animation: 2s ${bounceAnimation};
     }
@@ -24,7 +29,7 @@ const  StyledNav= styled.div`
   padding:20px;
   ${props=>props.float?float:null}
   @media only screen and (max-width: 768px) {
-    grid-template-columns:0fr 1fr;
+    grid-template-columns:1fr;
   }
 `;
 const RightSide= styled.div`
@@ -37,6 +42,15 @@ const RightSide= styled.div`
   }
   
 `;
+const LeftSide= styled.div`
+  h1{
+    margin:0;
+  }
+  @media only screen and (max-width: 768px) {
+    display:none;
+  }
+  
+`;
 class Nav extends React.Component {
   constructor(props) {
     super(props);
@@ -45,12 +59,14 @@ class Nav extends React.Component {
     const {float} = this.props;
     return (
       <StyledNav float={float} >
-        <div id="leftSide"></div>
+        <LeftSide>
+          <h1>John's Web</h1>
+        </LeftSide>
         <RightSide>
           <span></span>
-          <NavBtn><Link to="./">Home</Link><hr/></NavBtn>
-          <NavBtn><Link to="./games">Games</Link><hr/></NavBtn>
-          <NavBtn><Link to="./Components">Components</Link><hr/></NavBtn>
+          <NavBtn><Link to="./">Home</Link></NavBtn>
+          <NavBtn><Link to="./games">Games</Link></NavBtn>
+          <NavBtn><Link to="./Components">Components</Link></NavBtn>
         </RightSide>
       </StyledNav>
     );
